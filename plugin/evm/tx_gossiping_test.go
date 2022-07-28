@@ -74,8 +74,8 @@ func getValidTxs(key *ecdsa.PrivateKey, count int, gasPrice *big.Int) []*types.T
 }
 
 // show that locally issued eth txs are gossiped
-// Note: channel through which webb-evm mempool push txs to vm is injected here
-// to ease up UT, which target only VM behaviors in response to webb-evm mempool
+// Note: channel through which subnet-evm mempool push txs to vm is injected here
+// to ease up UT, which target only VM behaviors in response to subnet-evm mempool
 // signals
 func TestMempoolTxsAddedTxsGossipedAfterActivation(t *testing.T) {
 	t.Skip("FLAKY")
@@ -147,7 +147,7 @@ func TestMempoolTxsAddedTxsGossipedAfterActivation(t *testing.T) {
 	// Notify VM about eth txs
 	errs := vm.chain.GetTxPool().AddRemotesSync(ethTxs[:2])
 	for _, err := range errs {
-		assert.NoError(err, "failed adding webb-evm tx to mempool")
+		assert.NoError(err, "failed adding subnet-evm tx to mempool")
 	}
 
 	// Gossip txs again (shouldn't gossip hashes)
@@ -157,7 +157,7 @@ func TestMempoolTxsAddedTxsGossipedAfterActivation(t *testing.T) {
 	errs = vm.chain.GetTxPool().AddRemotesSync(ethTxs)
 	assert.Contains(errs[0].Error(), "already known")
 	assert.Contains(errs[1].Error(), "already known")
-	assert.NoError(errs[2], "failed adding webb-evm tx to mempool")
+	assert.NoError(errs[2], "failed adding subnet-evm tx to mempool")
 
 	attemptAwait(t, &wg, 5*time.Second)
 }
@@ -210,7 +210,7 @@ func TestMempoolTxsAddedTxsGossipedAfterActivationChunking(t *testing.T) {
 	// Notify VM about eth txs
 	errs := vm.chain.GetTxPool().AddRemotesSync(txs)
 	for _, err := range errs {
-		assert.NoError(err, "failed adding webb-evm tx to mempool")
+		assert.NoError(err, "failed adding subnet-evm tx to mempool")
 	}
 
 	attemptAwait(t, &wg, 5*time.Second)
@@ -261,7 +261,7 @@ func TestMempoolTxsAppGossipHandling(t *testing.T) {
 	// prepare a tx
 	tx := getValidTxs(key, 1, common.Big1)[0]
 
-	// show that unknown webb-evm hashes is requested
+	// show that unknown subnet-evm hashes is requested
 	txBytes, err := rlp.EncodeToBytes([]*types.Transaction{tx})
 	assert.NoError(err)
 	msg := message.TxsGossip{
@@ -304,7 +304,7 @@ func TestMempoolTxsRegossipSingleAccount(t *testing.T) {
 	// Notify VM about eth txs
 	errs := vm.chain.GetTxPool().AddRemotesSync(txs)
 	for _, err := range errs {
-		assert.NoError(err, "failed adding webb-evm tx to remote mempool")
+		assert.NoError(err, "failed adding subnet-evm tx to remote mempool")
 	}
 
 	// Only 1 transaction will be regossiped for an address (should be lowest
@@ -351,11 +351,11 @@ func TestMempoolTxsRegossip(t *testing.T) {
 	// Notify VM about eth txs
 	errs := vm.chain.GetTxPool().AddRemotesSync(ethTxs[:10])
 	for _, err := range errs {
-		assert.NoError(err, "failed adding webb-evm tx to remote mempool")
+		assert.NoError(err, "failed adding subnet-evm tx to remote mempool")
 	}
 	errs = vm.chain.GetTxPool().AddLocals(ethTxs[10:])
 	for _, err := range errs {
-		assert.NoError(err, "failed adding webb-evm tx to local mempool")
+		assert.NoError(err, "failed adding subnet-evm tx to local mempool")
 	}
 
 	// We expect 16 transactions (the default max number of transactions to
@@ -407,10 +407,10 @@ func TestMempoolTxsPriorityRegossip(t *testing.T) {
 
 	// Notify VM about eth txs
 	for _, err := range vm.chain.GetTxPool().AddRemotesSync(txs) {
-		assert.NoError(err, "failed adding webb-evm tx to remote mempool")
+		assert.NoError(err, "failed adding subnet-evm tx to remote mempool")
 	}
 	for _, err := range vm.chain.GetTxPool().AddRemotesSync(txs2) {
-		assert.NoError(err, "failed adding webb-evm tx 2 to remote mempool")
+		assert.NoError(err, "failed adding subnet-evm tx 2 to remote mempool")
 	}
 
 	// 10 transactions will be regossiped for a priority address (others ignored)

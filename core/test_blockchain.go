@@ -1562,6 +1562,11 @@ func TestStatefulPrecompiles(t *testing.T, create func(db ethdb.Database, chainC
 			},
 		},
 	}
+	config.ContractDeployerAssetConfig = precompile.ContractDeployerAssetConfig{
+		AssetConfig: precompile.AssetConfig{
+			BlockTimestamp: big.NewInt(0),
+		},
+	}
 	gspec := &Genesis{
 		Config: &config,
 		Alloc:  GenesisAlloc{addr1: {Balance: genesisBalance}},

@@ -39,7 +39,7 @@ import (
 )
 
 var (
-	errNonGenesisForkByHeight = errors.New("webb-evm only supports forking by height at the genesis block")
+	errNonGenesisForkByHeight = errors.New("subnet-evm only supports forking by height at the genesis block")
 
 	SubnetEVMChainID = big.NewInt(43214)
 
@@ -84,8 +84,8 @@ var (
 		AllowFeeRecipients:  false,
 	}
 
-	TestChainConfig        = &ChainConfig{big.NewInt(1), big.NewInt(0), big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), DefaultFeeConfig, false, precompile.ContractDeployerAllowListConfig{}, precompile.ContractNativeMinterConfig{}, precompile.TxAllowListConfig{}, precompile.FeeConfigManagerConfig{}}
-	TestPreSubnetEVMConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, DefaultFeeConfig, false, precompile.ContractDeployerAllowListConfig{}, precompile.ContractNativeMinterConfig{}, precompile.TxAllowListConfig{}, precompile.FeeConfigManagerConfig{}}
+	TestChainConfig        = &ChainConfig{big.NewInt(1), big.NewInt(0), big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), DefaultFeeConfig, false, precompile.ContractDeployerAllowListConfig{}, precompile.ContractNativeMinterConfig{}, precompile.TxAllowListConfig{}, precompile.FeeConfigManagerConfig{}, precompile.ContractDeployerAssetConfig{}}
+	TestPreSubnetEVMConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, DefaultFeeConfig, false, precompile.ContractDeployerAllowListConfig{}, precompile.ContractNativeMinterConfig{}, precompile.TxAllowListConfig{}, precompile.FeeConfigManagerConfig{}, precompile.ContractDeployerAssetConfig{}}
 )
 
 // ChainConfig is the core config which determines the blockchain settings.
@@ -120,6 +120,7 @@ type ChainConfig struct {
 	ContractNativeMinterConfig      precompile.ContractNativeMinterConfig      `json:"contractNativeMinterConfig,omitempty"`      // Config for the native minter precompile
 	TxAllowListConfig               precompile.TxAllowListConfig               `json:"txAllowListConfig,omitempty"`               // Config for the tx allow list precompile
 	FeeManagerConfig                precompile.FeeConfigManagerConfig          `json:"feeManagerConfig,omitempty"`                // Config for the fee manager precompile
+	ContractDeployerAssetConfig     precompile.ContractDeployerAssetConfig     `json:"contractDeployerAssetConfig,omitempty"`     // Config for the asset contract deployer
 }
 
 // String implements the fmt.Stringer interface.
@@ -128,7 +129,7 @@ func (c *ChainConfig) String() string {
 	if err != nil {
 		feeBytes = []byte("cannot unmarshal FeeConfig")
 	}
-	return fmt.Sprintf("{ChainID: %v Homestead: %v EIP150: %v EIP155: %v EIP158: %v Byzantium: %v Constantinople: %v Petersburg: %v Istanbul: %v, Muir Glacier: %v, Subnet EVM: %v, FeeConfig: %v, AllowFeeRecipients: %v, ContractDeployerAllowListConfig: %v, ContractNativeMinterConfig: %v, TxAllowListConfig: %v, FeeManagerConfig: %v, Engine: Dummy Consensus Engine}",
+	return fmt.Sprintf("{ChainID: %v Homestead: %v EIP150: %v EIP155: %v EIP158: %v Byzantium: %v Constantinople: %v Petersburg: %v Istanbul: %v, Muir Glacier: %v, Subnet EVM: %v, FeeConfig: %v, AllowFeeRecipients: %v, ContractDeployerAllowListConfig: %v, ContractNativeMinterConfig: %v, TxAllowListConfig: %v, FeeManagerConfig: %v, ContractDeployerAssetConfig: %v, Engine: Dummy Consensus Engine}",
 		c.ChainID,
 		c.HomesteadBlock,
 		c.EIP150Block,
@@ -146,6 +147,7 @@ func (c *ChainConfig) String() string {
 		c.ContractNativeMinterConfig,
 		c.TxAllowListConfig,
 		c.FeeManagerConfig,
+		c.ContractDeployerAssetConfig,
 	)
 }
 
@@ -214,6 +216,10 @@ func (c *ChainConfig) IsContractNativeMinter(blockTimestamp *big.Int) bool {
 // IsTxAllowList returns whether [blockTimestamp] is either equal to the TxAllowList fork block timestamp or greater.
 func (c *ChainConfig) IsTxAllowList(blockTimestamp *big.Int) bool {
 	return utils.IsForked(c.TxAllowListConfig.Timestamp(), blockTimestamp)
+}
+
+func (c *ChainConfig) IsContractDeployerAssetConfig(blockTimestamp *big.Int) bool {
+	return utils.IsForked(c.ContractDeployerAssetConfig.Timestamp(), blockTimestamp)
 }
 
 // IsFeeConfigManager returns whether [blockTimestamp] is either equal to the FeeConfigManager fork block timestamp or greater.
@@ -360,7 +366,7 @@ func (c *ChainConfig) checkCompatible(newcfg *ChainConfig, headHeight *big.Int, 
 		return newCompatError("Muir Glacier fork block", c.MuirGlacierBlock, newcfg.MuirGlacierBlock)
 	}
 
-	// Check webb-evm specific activations
+	// Check subnet-evm specific activations
 	if isForkIncompatible(c.SubnetEVMTimestamp, newcfg.SubnetEVMTimestamp, headTimestamp) {
 		return newCompatError("SubnetEVM fork block timestamp", c.SubnetEVMTimestamp, newcfg.SubnetEVMTimestamp)
 	}
@@ -383,6 +389,10 @@ func (c *ChainConfig) checkCompatible(newcfg *ChainConfig, headHeight *big.Int, 
 	// Check that the configuration of the optional FeeManagerConfig stateful precompile is compatible.
 	if isForkIncompatible(c.FeeManagerConfig.Timestamp(), newcfg.FeeManagerConfig.Timestamp(), headTimestamp) {
 		return newCompatError("FeeManagerConfig fork block timestamp", c.FeeManagerConfig.Timestamp(), newcfg.FeeManagerConfig.Timestamp())
+	}
+
+	if isForkIncompatible(c.ContractDeployerAssetConfig.Timestamp(), newcfg.FeeManagerConfig.Timestamp(), headTimestamp) {
+		return newCompatError("AssetConfig fork block timestamp", c.ContractDeployerAssetConfig.Timestamp(), newcfg.ContractDeployerAssetConfig.Timestamp())
 	}
 
 	// TODO verify that the fee config is fully compatible between [c] and [newcfg].
@@ -455,6 +465,7 @@ type Rules struct {
 	IsContractNativeMinterEnabled      bool
 	IsTxAllowListEnabled               bool
 	IsFeeConfigManagerEnabled          bool
+	IsContractDeployerAssetEnabled     bool
 
 	// Precompiles maps addresses to stateful precompiled contracts that are enabled
 	// for this rule set.
@@ -492,6 +503,7 @@ func (c *ChainConfig) AvalancheRules(blockNum, blockTimestamp *big.Int) Rules {
 	rules.IsContractNativeMinterEnabled = c.IsContractNativeMinter(blockTimestamp)
 	rules.IsTxAllowListEnabled = c.IsTxAllowList(blockTimestamp)
 	rules.IsFeeConfigManagerEnabled = c.IsFeeConfigManager(blockTimestamp)
+	rules.IsContractDeployerAssetEnabled = c.IsContractDeployerAssetConfig(blockTimestamp)
 
 	// Initialize the stateful precompiles that should be enabled at [blockTimestamp].
 	rules.Precompiles = make(map[common.Address]precompile.StatefulPrecompiledContract)
@@ -523,6 +535,10 @@ func (c *ChainConfig) enabledStatefulPrecompiles() []precompile.StatefulPrecompi
 
 	if c.FeeManagerConfig.Timestamp() != nil {
 		statefulPrecompileConfigs = append(statefulPrecompileConfigs, &c.FeeManagerConfig)
+	}
+
+	if c.ContractDeployerAssetConfig.Timestamp() != nil {
+		statefulPrecompileConfigs = append(statefulPrecompileConfigs, &c.ContractDeployerAssetConfig)
 	}
 
 	return statefulPrecompileConfigs

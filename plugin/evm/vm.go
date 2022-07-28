@@ -618,7 +618,7 @@ func (vm *VM) CreateHandlers() (map[string]*commonEng.HTTPHandler, error) {
 			return nil, fmt.Errorf("failed to register service for admin API due to %w", err)
 		}
 		apis[adminEndpoint] = adminAPI
-		enabledAPIs = append(enabledAPIs, "webb-evm-admin")
+		enabledAPIs = append(enabledAPIs, "subnet-evm-admin")
 	}
 
 	if vm.config.SnowmanAPIEnabled {

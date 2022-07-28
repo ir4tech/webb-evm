@@ -109,7 +109,7 @@ done:
 		for chainID, vmInfo := range resp.ClusterInfo.CustomVms {
 			if vmInfo.VmId == vmId.String() {
 				blockchainID = chainID
-				outf("{{blue}}webb-evm is ready:{{/}} %+v\n", vmInfo)
+				outf("{{blue}}subnet-evm is ready:{{/}} %+v\n", vmInfo)
 				break done
 			}
 		}
@@ -143,7 +143,7 @@ func GetClusterInfo(blockchainId string, logsDir string) (clusterInfo, error) {
 	for _, u := range uris {
 		rpcEP := fmt.Sprintf("%s/ext/bc/%s/rpc", u, blockchainId)
 		subnetEVMRPCEps = append(subnetEVMRPCEps, rpcEP)
-		outf("{{blue}}avalanche webb-evm RPC:{{/}} %q\n", rpcEP)
+		outf("{{blue}}avalanche subnet-evm RPC:{{/}} %q\n", rpcEP)
 	}
 
 	pid := os.Getpid()

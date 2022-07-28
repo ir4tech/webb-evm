@@ -198,7 +198,7 @@ func getKeyStoreDir(conf *Config) (string, bool, error) {
 	isEphemeral := false
 	if keydir == "" {
 		// There is no datadir.
-		keydir, err = ioutil.TempDir("", "webb-evm-keystore")
+		keydir, err = ioutil.TempDir("", "subnet-evm-keystore")
 		isEphemeral = true
 	}
 

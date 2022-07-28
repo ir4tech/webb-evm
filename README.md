@@ -1,7 +1,8 @@
 
 # Subnet EVM
 
-![Github Actions](https://github.com/ir4tech/webb-evm/actions/workflows/lint-tests-release.yml/badge.svg)
+[![Build + Test + Release](https://github.com/ir4tech/webb-evm/actions/workflows/lint-tests-release.yml/badge.svg)](https://github.com/ir4tech/webb-evm/actions/workflows/lint-tests-release.yml)
+[![CodeQL](https://github.com/ir4tech/webb-evm/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ir4tech/webb-evm/actions/workflows/codeql-analysis.yml)
 
 [Avalanche](https://docs.avax.network/overview/getting-started/avalanche-platform) is a network composed of multiple blockchains.
 Each blockchain is an instance of a Virtual Machine (VM), much like an object in an object-oriented language is an instance of a class.
@@ -23,9 +24,11 @@ The Subnet EVM runs in a separate process from the main AvalancheGo process and 
 [v0.2.0] AvalancheGo@v1.7.7-v1.7.9
 [v0.2.1] AvalancheGo@v1.7.10
 [v0.2.2] AvalancheGo@v1.7.11-v1.7.12
-[v0.2.3] AvalancheGo@v1.7.13-v1.7.14
-[v0.2.4] AvalancheGo@v1.7.13-v1.7.14
-[v0.2.5] AvalancheGo@v1.7.13-v1.7.14
+[v0.2.3] AvalancheGo@v1.7.13-v1.7.16
+[v0.2.4] AvalancheGo@v1.7.13-v1.7.16
+[v0.2.5] AvalancheGo@v1.7.13-v1.7.16
+[v0.2.6] AvalancheGo@v1.7.13-v1.7.16
+[v0.2.7] AvalancheGo@v1.7.13-v1.7.16
 ```
 
 ## API
@@ -76,8 +79,8 @@ Download the `subnet-evm` repository into your `$GOPATH`:
 cd $GOPATH
 mkdir -p src/github.com/ava-labs
 cd src/github.com/ava-labs
-git clone git@github.com:ava-labs/webb-evm.git
-cd webb-evm
+git clone git@github.com:ava-labs/subnet-evm.git
+cd subnet-evm
 ```
 
 This will clone and checkout to `master` branch.
@@ -93,7 +96,7 @@ and creates a `subnet-evm` genesis file. The usage of this script is
 
 ```bash
 # to startup a local cluster (good for development)
-cd ${HOME}/go/src/github.com/ava-labs/webb-evm
+cd ${HOME}/go/src/github.com/ava-labs/subnet-evm
 git pull
 ./scripts/run.sh 1.7.13 0x8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC
 ```
@@ -131,10 +134,10 @@ WS Endpoints:
 
 MetaMask Quick Start:
 Funded Address: 0x8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC
-Network Name: Webb EVM
+Network Name: Local EVM
 RPC URL: http://127.0.0.1:14463/ext/bc/28N1Tv5CZziQ3FKCaXmo8xtxoFtuoVA6NvZykAT5MtGjF4JkGs/rpc
 Chain ID: 99999
-Curreny Symbol: LIGHT
+Curreny Symbol: LEVM
 network-runner RPC server is running on PID 79100...
 
 use the following command to terminate:
@@ -182,10 +185,10 @@ Please use the value provided by `MetaMask Quick Start` to connect with Metamask
 ```text
 MetaMask Quick Start:
 Funded Address: 0x8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC
-Network Name: Webb EVM
+Network Name: Local EVM
 RPC URL: http://127.0.0.1:14463/ext/bc/28N1Tv5CZziQ3FKCaXmo8xtxoFtuoVA6NvZykAT5MtGjF4JkGs/rpc
 Chain ID: 99999
-Curreny Symbol: LIGHT
+Curreny Symbol: LEVM
 ```
 
 You can create a new metamask account by importing the private key `0x56289e99c94b6912bfc12adc093c9b51124f0dc54ac7a766b2bc5ccf558d8027` and start experiencing with this account.
@@ -226,7 +229,7 @@ If you followed the directions successfully, you should see the following:
 
 ```bash
 > go run main.go
-go: downloading github.com/ava-labs/webb-evm v0.1.2
+go: downloading github.com/ava-labs/subnet-evm v0.1.2
 go: downloading github.com/spf13/viper v1.10.1
 2022/05/11 09:49:22 loaded config (endpoints=[http://127.0.0.1:14463/ext/bc/28N1Tv5CZziQ3FKCaXmo8xtxoFtuoVA6NvZykAT5MtGjF4JkGs/rpc] concurrency=25 base fee=1 priority fee=10)
 2022/05/11 09:49:22 loaded worker 0x8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC (balance=100000000000000000000000000 nonce=0)

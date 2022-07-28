@@ -38,6 +38,9 @@ fi
 
 AVALANCHE_LOG_LEVEL=${AVALANCHE_LOG_LEVEL:-INFO}
 
+# Commenting out this variable will run the latest version
+NETWORK_RUNNER_VERSION=1.1.4
+
 echo "Running with:"
 echo VERSION: ${VERSION}
 echo MODE: ${MODE}
@@ -75,7 +78,7 @@ AVALANCHEGO_PATH=/tmp/avalanchego-v${VERSION}/avalanchego
 AVALANCHEGO_PLUGIN_DIR=/tmp/avalanchego-v${VERSION}/plugins
 
 #################################
-# compile webb-evm
+# compile subnet-evm
 # Check if SUBNET_EVM_COMMIT is set, if not retrieve the last commit from the repo.
 # This is used in the Dockerfile to allow a commit hash to be passed in without
 # including the .git/ directory within the Docker image.
@@ -90,7 +93,7 @@ go build \
 find /tmp/avalanchego-v${VERSION}
 
 #################################
-# write webb-evm genesis
+# write subnet-evm genesis
 
 # Create genesis file to use in network (make sure to add your address to
 # "alloc")
@@ -192,28 +195,27 @@ fi
 #################################
 # download avalanche-network-runner
 # https://github.com/ava-labs/avalanche-network-runner
-# TODO: use "go install -v github.com/ava-labs/avalanche-network-runner/cmd/avalanche-network-runner@v${NETWORK_RUNNER_VERSION}"
-NETWORK_RUNNER_VERSION=1.1.3
-DOWNLOAD_PATH=/tmp/avalanche-network-runner.tar.gz
-DOWNLOAD_URL=https://github.com/ava-labs/avalanche-network-runner/releases/download/v${NETWORK_RUNNER_VERSION}/avalanche-network-runner_${NETWORK_RUNNER_VERSION}_linux_amd64.tar.gz
-if [[ ${GOOS} == "darwin" ]]; then
-  DOWNLOAD_URL=https://github.com/ava-labs/avalanche-network-runner/releases/download/v${NETWORK_RUNNER_VERSION}/avalanche-network-runner_${NETWORK_RUNNER_VERSION}_darwin_amd64.tar.gz
+REPO_PATH=github.com/ava-labs/avalanche-network-runner
+if [[ -z ${NETWORK_RUNNER_VERSION+x} ]]; then
+  # no version set
+  go install -v ${REPO_PATH}@latest
+else
+  # version set
+  go install -v ${REPO_PATH}@v${NETWORK_RUNNER_VERSION}
 fi
-
-rm -f ${DOWNLOAD_PATH}
-rm -f /tmp/avalanche-network-runner
-
-echo "downloading avalanche-network-runner ${NETWORK_RUNNER_VERSION} at ${DOWNLOAD_URL}"
-curl -L ${DOWNLOAD_URL} -o ${DOWNLOAD_PATH}
-
-echo "extracting downloaded avalanche-network-runner"
-tar xzvf ${DOWNLOAD_PATH} -C /tmp
 
 #################################
 # run "avalanche-network-runner" server
+GOPATH=$(go env GOPATH)
+if [[ -z ${GOBIN+x} ]]; then
+  # no gobin set
+  BIN=${GOPATH}/bin/avalanche-network-runner
+else
+  # gobin set
+  BIN=${GOBIN}/avalanche-network-runner
+fi
 echo "launch avalanche-network-runner in the background"
-/tmp/avalanche-network-runner \
-server \
+$BIN server \
 --log-level debug \
 --port=":12342" \
 --grpc-gateway-port=":12343" &

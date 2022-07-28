@@ -19,7 +19,7 @@ import (
 
 func TestE2e(t *testing.T) {
 	gomega.RegisterFailHandler(ginkgo.Fail)
-	ginkgo.RunSpecs(t, "webb-evm e2e test suites")
+	ginkgo.RunSpecs(t, "subnet-evm e2e test suites")
 }
 
 var (

@@ -94,10 +94,10 @@ func parseMetamask(outputFile string, chainId string, address string) {
 
 	color.Yellow("MetaMask Quick Start:")
 	color.Yellow("Funded Address: %s", address)
-	color.Yellow("Network Name: Webb EVM")
+	color.Yellow("Network Name: Local EVM")
 	color.Yellow("RPC URL: %s%s/rpc", o.URIs[0], o.Endpoint)
 	color.Yellow("Chain ID: %s", chainId)
-	color.Yellow("Currency Symbol: LIGHT")
+	color.Yellow("Currency Symbol: LEVM")
 }
 
 func main() {

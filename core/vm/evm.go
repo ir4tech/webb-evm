@@ -152,10 +152,9 @@ type EVM struct {
 	TxContext
 	// StateDB gives access to the underlying state
 	StateDB StateDB
+	AssetDB AssetDB
 	// Depth is the current call stack
 	depth int
-
-	AssetDB AssetDB
 
 	// chainConfig contains information about the current chain
 	chainConfig *params.ChainConfig

@@ -726,7 +726,7 @@ func (s *PublicBlockChainAPI) GetHeaderByNumber(ctx context.Context, number rpc.
 	header, err := s.b.HeaderByNumber(ctx, number)
 	if header != nil && err == nil {
 		response := s.rpcMarshalHeader(ctx, header)
-		// webb-evm has no notion of a pending block
+		// subnet-evm has no notion of a pending block
 		// if number == rpc.PendingBlockNumber {
 		// 	// Pending header need to nil out a few fields
 		// 	for _, field := range []string{"hash", "nonce", "miner"} {
@@ -756,7 +756,7 @@ func (s *PublicBlockChainAPI) GetBlockByNumber(ctx context.Context, number rpc.B
 	block, err := s.b.BlockByNumber(ctx, number)
 	if block != nil && err == nil {
 		response, err := s.rpcMarshalBlock(ctx, block, true, fullTx)
-		// webb-evm has no notion of a pending block
+		// subnet-evm has no notion of a pending block
 		// if err == nil && number == rpc.PendingBlockNumber {
 		// 	// Pending blocks need to nil out a few fields
 		// 	for _, field := range []string{"hash", "nonce", "miner"} {
@@ -1283,7 +1283,7 @@ func RPCMarshalBlock(block *types.Block, inclTx bool, fullTx bool, config *param
 // a `PublicBlockchainAPI`.
 func (s *PublicBlockChainAPI) rpcMarshalHeader(ctx context.Context, header *types.Header) map[string]interface{} {
 	fields := RPCMarshalHeader(header)
-	// Note: webb-evm enforces that the difficulty of a block is always 1, such that the total difficulty of a block
+	// Note: subnet-evm enforces that the difficulty of a block is always 1, such that the total difficulty of a block
 	// will be equivalent to its height.
 	fields["totalDifficulty"] = (*hexutil.Big)(header.Number)
 	return fields
@@ -1297,7 +1297,7 @@ func (s *PublicBlockChainAPI) rpcMarshalBlock(ctx context.Context, b *types.Bloc
 		return nil, err
 	}
 	if inclTx {
-		// Note: webb-evm enforces that the difficulty of a block is always 1, such that the total difficulty of a block
+		// Note: subnet-evm enforces that the difficulty of a block is always 1, such that the total difficulty of a block
 		// will be equivalent to its height.
 		fields["totalDifficulty"] = (*hexutil.Big)(b.Number())
 	}

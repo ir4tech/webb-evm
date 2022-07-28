@@ -5,7 +5,6 @@ package precompile
 
 import (
 	"fmt"
-	"github.com/ir4tech/webb-evm/core/types"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -55,9 +54,10 @@ type StateDB interface {
 }
 
 type AssetDB interface {
-	RegisterAsset(owner common.Address, name string)
-	GetAsset(assetId common.Hash) (types.Asset, error)
-	GetAssetByOwner(owner common.Address) []types.Asset
+	GetAll() []commontype.Asset
+	RegisterAsset(assetId common.Hash, owner common.Address, name string)
+	GetAsset(assetId common.Hash) (commontype.Asset, error)
+	GetAssetByOwner(owner common.Address) []commontype.Asset
 	UpdateLocation(assetId common.Hash, location string) error
 	UpdateName(assetId common.Hash, name string) error
 }

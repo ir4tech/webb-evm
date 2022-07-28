@@ -69,7 +69,7 @@ var (
 type JumpTable [256]*operation
 
 // newSubnetEVMInstructionSet returns the frontier, homestead, byzantium,
-// contantinople, istanbul, petersburg, webb-evm instructions.
+// contantinople, istanbul, petersburg, subnet-evm instructions.
 func newSubnetEVMInstructionSet() JumpTable {
 	instructionSet := newIstanbulInstructionSet()
 	enable2929(&instructionSet)

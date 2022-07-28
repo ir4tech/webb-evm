@@ -24,7 +24,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
-// Package subnetevmclient provides an RPC client for webb-evm-specific APIs.
+// Package subnetevmclient provides an RPC client for subnet-evm-specific APIs.
 package subnetevmclient
 
 import (

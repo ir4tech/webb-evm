@@ -94,11 +94,11 @@ func TestUpdateGasPriceInitializesPrice(t *testing.T) {
 	attemptAwait(t, wg, time.Millisecond)
 
 	if gpu.setter.(*mockGasPriceSetter).price.Cmp(big.NewInt(0)) != 0 {
-		t.Fatalf("Expected price to match minimum base fee for webb-evm")
+		t.Fatalf("Expected price to match minimum base fee for subnet-evm")
 	}
 
 	if minFee := gpu.setter.(*mockGasPriceSetter).minFee; minFee == nil || minFee.Cmp(params.DefaultFeeConfig.MinBaseFee) != 0 {
-		t.Fatalf("Expected min fee to match minimum fee for webb-evm, but found: %d", minFee)
+		t.Fatalf("Expected min fee to match minimum fee for subnet-evm, but found: %d", minFee)
 	}
 }
 
@@ -121,9 +121,9 @@ func TestUpdateGasPriceUpdatesPrice(t *testing.T) {
 	attemptAwait(t, wg, 5*time.Second)
 	price, minFee := gpu.setter.(*mockGasPriceSetter).GetStatus()
 	if price.Cmp(big.NewInt(0)) != 0 {
-		t.Fatalf("Expected price to match minimum base fee for webb-evm")
+		t.Fatalf("Expected price to match minimum base fee for subnet-evm")
 	}
 	if minFee == nil || minFee.Cmp(params.DefaultFeeConfig.MinBaseFee) != 0 {
-		t.Fatalf("Expected min fee to match minimum fee for webb-evm, but found: %d", minFee)
+		t.Fatalf("Expected min fee to match minimum fee for subnet-evm, but found: %d", minFee)
 	}
 }
