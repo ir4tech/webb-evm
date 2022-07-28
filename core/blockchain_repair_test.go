@@ -36,12 +36,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/consensus/dummy"
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/params"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/consensus/dummy"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/params"
 )
 
 // rewindTest is a test case for chain rollback upon user request.

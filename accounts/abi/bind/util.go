@@ -31,10 +31,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/interfaces"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/interfaces"
 )
 
 // WaitMined waits for tx to be mined on the blockchain.

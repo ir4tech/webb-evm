@@ -30,11 +30,11 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/ava-labs/subnet-evm/consensus"
-	"github.com/ava-labs/subnet-evm/core/state"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/params"
+	"github.com/ir4tech/webb-evm/consensus"
+	"github.com/ir4tech/webb-evm/core/state"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/params"
 )
 
 // statePrefetcher is a basic Prefetcher, which blindly executes a block on top

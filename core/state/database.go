@@ -31,12 +31,12 @@ import (
 	"fmt"
 
 	"github.com/VictoriaMetrics/fastcache"
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/ethdb"
-	"github.com/ava-labs/subnet-evm/trie"
 	"github.com/ethereum/go-ethereum/common"
 	lru "github.com/hashicorp/golang-lru"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/ethdb"
+	"github.com/ir4tech/webb-evm/trie"
 )
 
 const (

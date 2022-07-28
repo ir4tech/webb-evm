@@ -43,13 +43,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/accounts"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/interfaces"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/log"
 	pcsc "github.com/gballet/go-libpcsclite"
+	"github.com/ir4tech/webb-evm/accounts"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/interfaces"
 	"github.com/status-im/keycard-go/derivationpath"
 )
 

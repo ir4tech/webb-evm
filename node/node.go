@@ -27,8 +27,8 @@
 package node
 
 import (
-	"github.com/ava-labs/subnet-evm/accounts"
-	"github.com/ava-labs/subnet-evm/rpc"
+	"github.com/ir4tech/webb-evm/accounts"
+	"github.com/ir4tech/webb-evm/rpc"
 )
 
 // Node is a container on which services can be registered.

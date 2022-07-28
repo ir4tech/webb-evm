@@ -30,7 +30,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/ethdb"
+	"github.com/ir4tech/webb-evm/ethdb"
 )
 
 func TestTableDatabase(t *testing.T)            { testTableDatabase(t, "prefix") }

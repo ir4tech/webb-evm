@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/ava-labs/subnet-evm/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ir4tech/webb-evm/vmerrs"
 )
 
 var functionSignatureRegex = regexp.MustCompile(`[\w]+\(((([\w]+)?)|((([\w]+),)+([\w]+)))\)`)

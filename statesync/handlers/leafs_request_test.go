@@ -10,12 +10,12 @@ import (
 	"testing"
 
 	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/subnet-evm/ethdb/memorydb"
-	"github.com/ava-labs/subnet-evm/plugin/evm/message"
-	"github.com/ava-labs/subnet-evm/statesync/handlers/stats"
-	"github.com/ava-labs/subnet-evm/trie"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ir4tech/webb-evm/ethdb/memorydb"
+	"github.com/ir4tech/webb-evm/plugin/evm/message"
+	"github.com/ir4tech/webb-evm/statesync/handlers/stats"
+	"github.com/ir4tech/webb-evm/trie"
 	"github.com/stretchr/testify/assert"
 )
 

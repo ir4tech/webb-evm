@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/params"
+	"github.com/ir4tech/webb-evm/params"
 
 	"github.com/ava-labs/avalanchego/snow"
 )

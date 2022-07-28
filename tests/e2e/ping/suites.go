@@ -11,8 +11,8 @@ import (
 	ginkgo "github.com/onsi/ginkgo/v2"
 	"github.com/onsi/gomega"
 
-	"github.com/ava-labs/subnet-evm/tests/e2e/runner"
-	"github.com/ava-labs/subnet-evm/tests/e2e/utils"
+	"github.com/ir4tech/webb-evm/tests/e2e/runner"
+	"github.com/ir4tech/webb-evm/tests/e2e/utils"
 )
 
 var _ = utils.DescribeLocal("[Ping]", func() {

@@ -42,11 +42,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/accounts"
-	"github.com/ava-labs/subnet-evm/core/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/event"
+	"github.com/ir4tech/webb-evm/accounts"
+	"github.com/ir4tech/webb-evm/core/types"
 )
 
 var (

@@ -29,8 +29,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"github.com/ava-labs/subnet-evm/core/vm/runtime"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/core/vm/runtime"
 )
 
 func ExampleExecute() {

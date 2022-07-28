@@ -32,11 +32,11 @@ import (
 	"time"
 
 	"github.com/VictoriaMetrics/fastcache"
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/ethdb"
-	"github.com/ava-labs/subnet-evm/trie"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/ethdb"
+	"github.com/ir4tech/webb-evm/trie"
 )
 
 // diskLayer is a low level persistent snapshot built on top of a key-value store.

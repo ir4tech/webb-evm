@@ -1,4 +1,4 @@
-module github.com/ava-labs/subnet-evm
+module github.com/ir4tech/webb-evm
 
 go 1.17
 

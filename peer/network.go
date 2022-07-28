@@ -18,9 +18,9 @@ import (
 	"github.com/ava-labs/avalanchego/snow/validators"
 	"github.com/ava-labs/avalanchego/version"
 
-	"github.com/ava-labs/subnet-evm/peer/stats"
-	"github.com/ava-labs/subnet-evm/plugin/evm/message"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/peer/stats"
+	"github.com/ir4tech/webb-evm/plugin/evm/message"
 )
 
 // Minimum amount of time to handle a request

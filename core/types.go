@@ -27,9 +27,9 @@
 package core
 
 import (
-	"github.com/ava-labs/subnet-evm/core/state"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/core/vm"
+	"github.com/ir4tech/webb-evm/core/state"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/core/vm"
 )
 
 // Validator is an interface which defines the standard for block validation. It

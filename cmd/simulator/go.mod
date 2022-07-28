@@ -1,4 +1,4 @@
-module github.com/ava-labs/subnet-evm/cmd/simulator
+module github.com/ir4tech/webb-evm/cmd/simulator
 
 go 1.17
 

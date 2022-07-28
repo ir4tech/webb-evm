@@ -33,8 +33,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ava-labs/subnet-evm/ethdb"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/ethdb"
 )
 
 var (

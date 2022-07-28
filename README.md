@@ -1,8 +1,8 @@
 
 # Subnet EVM
 
-[![Build + Test + Release](https://github.com/ava-labs/subnet-evm/actions/workflows/lint-tests-release.yml/badge.svg)](https://github.com/ava-labs/subnet-evm/actions/workflows/lint-tests-release.yml)
-[![CodeQL](https://github.com/ava-labs/subnet-evm/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ava-labs/subnet-evm/actions/workflows/codeql-analysis.yml)
+[![Build + Test + Release](https://github.com/ir4tech/webb-evm/actions/workflows/lint-tests-release.yml/badge.svg)](https://github.com/ir4tech/webb-evm/actions/workflows/lint-tests-release.yml)
+[![CodeQL](https://github.com/ir4tech/webb-evm/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ir4tech/webb-evm/actions/workflows/codeql-analysis.yml)
 
 [Avalanche](https://docs.avax.network/overview/getting-started/avalanche-platform) is a network composed of multiple blockchains.
 Each blockchain is an instance of a Virtual Machine (VM), much like an object in an object-oriented language is an instance of a class.
@@ -87,7 +87,7 @@ This will clone and checkout to `master` branch.
 
 ### Run Local Network
 
-[`scripts/run.sh`](https://github.com/ava-labs/subnet-evm/blob/master/scripts/run.sh) automatically installs `avalanchego`, sets up a local network,
+[`scripts/run.sh`](https://github.com/ir4tech/webb-evm/blob/master/scripts/run.sh) automatically installs `avalanchego`, sets up a local network,
 and creates a `subnet-evm` genesis file. The usage of this script is
 
 ```bash

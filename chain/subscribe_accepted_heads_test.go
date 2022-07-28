@@ -4,10 +4,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/core"
-	"github.com/ava-labs/subnet-evm/core/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/core"
+	"github.com/ir4tech/webb-evm/core/types"
 )
 
 func TestAcceptedHeadSubscriptions(t *testing.T) {

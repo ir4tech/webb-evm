@@ -30,11 +30,11 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/ethdb"
-	"github.com/ava-labs/subnet-evm/ethdb/memorydb"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/ethdb"
+	"github.com/ir4tech/webb-evm/ethdb/memorydb"
 )
 
 // reverse reverses the contents of a byte slice. It's used to update random accs

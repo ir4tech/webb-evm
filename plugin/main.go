@@ -11,7 +11,7 @@ import (
 	"github.com/ava-labs/avalanchego/utils/ulimit"
 	"github.com/ava-labs/avalanchego/vms/rpcchainvm"
 
-	"github.com/ava-labs/subnet-evm/plugin/evm"
+	"github.com/ir4tech/webb-evm/plugin/evm"
 )
 
 func main() {

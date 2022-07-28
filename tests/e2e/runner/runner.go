@@ -9,7 +9,7 @@ import (
 
 	"github.com/ava-labs/avalanche-network-runner/client"
 	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/subnet-evm/tests/e2e/utils"
+	"github.com/ir4tech/webb-evm/tests/e2e/utils"
 	"github.com/onsi/ginkgo/v2/formatter"
 
 	"sigs.k8s.io/yaml"

@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/core/state"
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/params"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/core/state"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/params"
 )
 
 type dummyContractRef struct {

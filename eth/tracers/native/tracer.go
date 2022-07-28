@@ -47,7 +47,7 @@ package native
 import (
 	"errors"
 
-	"github.com/ava-labs/subnet-evm/eth/tracers"
+	"github.com/ir4tech/webb-evm/eth/tracers"
 )
 
 // init registers itself this packages as a lookup for tracers.

@@ -29,10 +29,10 @@ package vm
 import (
 	"errors"
 
-	"github.com/ava-labs/subnet-evm/params"
-	"github.com/ava-labs/subnet-evm/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ir4tech/webb-evm/params"
+	"github.com/ir4tech/webb-evm/vmerrs"
 )
 
 // gasSStoreEIP2929 implements gas cost for SSTORE according to EIP-2929

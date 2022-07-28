@@ -27,8 +27,8 @@
 package vm
 
 import (
-	"github.com/ava-labs/subnet-evm/vmerrs"
 	"github.com/holiman/uint256"
+	"github.com/ir4tech/webb-evm/vmerrs"
 )
 
 // Gas costs

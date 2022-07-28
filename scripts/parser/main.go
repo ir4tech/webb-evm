@@ -9,9 +9,9 @@ import (
 	"strings"
 
 	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/subnet-evm/tests/e2e/runner"
-	"github.com/ava-labs/subnet-evm/tests/e2e/utils"
 	"github.com/fatih/color"
+	"github.com/ir4tech/webb-evm/tests/e2e/runner"
+	"github.com/ir4tech/webb-evm/tests/e2e/utils"
 	"gopkg.in/yaml.v2"
 )
 

@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/params"
+	"github.com/ir4tech/webb-evm/params"
 )
 
 type gasPriceUpdater struct {

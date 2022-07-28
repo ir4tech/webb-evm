@@ -36,21 +36,21 @@ import (
 	"testing"
 	"unicode"
 
-	"github.com/ava-labs/subnet-evm/core"
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/eth/tracers"
-	"github.com/ava-labs/subnet-evm/params"
-	"github.com/ava-labs/subnet-evm/tests"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ir4tech/webb-evm/core"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/eth/tracers"
+	"github.com/ir4tech/webb-evm/params"
+	"github.com/ir4tech/webb-evm/tests"
 
 	// Force-load the native, to trigger registration
-	_ "github.com/ava-labs/subnet-evm/eth/tracers/native"
+	_ "github.com/ir4tech/webb-evm/eth/tracers/native"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into

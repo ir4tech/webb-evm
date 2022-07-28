@@ -35,9 +35,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/eth/tracers"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/eth/tracers"
 )
 
 func init() {

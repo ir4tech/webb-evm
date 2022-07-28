@@ -29,7 +29,7 @@ package rpc
 import (
 	"fmt"
 
-	"github.com/ava-labs/subnet-evm/metrics"
+	"github.com/ir4tech/webb-evm/metrics"
 )
 
 var (

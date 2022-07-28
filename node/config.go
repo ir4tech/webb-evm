@@ -32,11 +32,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ava-labs/subnet-evm/accounts"
-	"github.com/ava-labs/subnet-evm/accounts/external"
-	"github.com/ava-labs/subnet-evm/accounts/keystore"
-	"github.com/ava-labs/subnet-evm/rpc"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/accounts"
+	"github.com/ir4tech/webb-evm/accounts/external"
+	"github.com/ir4tech/webb-evm/accounts/keystore"
+	"github.com/ir4tech/webb-evm/rpc"
 )
 
 // Config represents a small collection of configuration values to fine tune the

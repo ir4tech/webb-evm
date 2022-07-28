@@ -1,4 +1,4 @@
-module github.com/ava-labs/subnet-evm/scripts/parser
+module github.com/ir4tech/webb-evm/scripts/parser
 
 go 1.17
 

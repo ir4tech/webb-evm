@@ -33,10 +33,10 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/ethdb"
-	"github.com/ava-labs/subnet-evm/ethdb/memorydb"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ir4tech/webb-evm/ethdb"
+	"github.com/ir4tech/webb-evm/ethdb/memorydb"
 )
 
 func TestEmptyIterator(t *testing.T) {

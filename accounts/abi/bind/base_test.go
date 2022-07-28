@@ -33,14 +33,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/accounts/abi"
-	"github.com/ava-labs/subnet-evm/accounts/abi/bind"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/interfaces"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ir4tech/webb-evm/accounts/abi"
+	"github.com/ir4tech/webb-evm/accounts/abi/bind"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/interfaces"
 	"github.com/stretchr/testify/assert"
 )
 

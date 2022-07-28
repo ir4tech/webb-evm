@@ -30,8 +30,8 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ava-labs/subnet-evm/params"
 	"github.com/holiman/uint256"
+	"github.com/ir4tech/webb-evm/params"
 )
 
 var activators = map[int]func(*JumpTable){

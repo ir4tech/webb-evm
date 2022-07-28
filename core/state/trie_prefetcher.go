@@ -29,9 +29,9 @@ package state
 import (
 	"sync"
 
-	"github.com/ava-labs/subnet-evm/metrics"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/metrics"
 )
 
 // triePrefetchMetricsPrefix is the prefix under which to publis the metrics.

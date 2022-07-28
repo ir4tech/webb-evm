@@ -29,10 +29,10 @@ package shutdowncheck
 import (
 	"time"
 
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/ethdb"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/ethdb"
 )
 
 // ShutdownTracker is a service that reports previous unclean shutdowns

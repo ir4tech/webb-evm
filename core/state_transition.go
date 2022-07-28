@@ -33,12 +33,12 @@ import (
 
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/params"
-	"github.com/ava-labs/subnet-evm/precompile"
-	"github.com/ava-labs/subnet-evm/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/params"
+	"github.com/ir4tech/webb-evm/precompile"
+	"github.com/ir4tech/webb-evm/vmerrs"
 )
 
 var emptyCodeHash = crypto.Keccak256Hash(nil)

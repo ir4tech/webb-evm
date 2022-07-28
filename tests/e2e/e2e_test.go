@@ -9,10 +9,10 @@ import (
 	"testing"
 
 	"github.com/ava-labs/avalanchego/ids"
-	_ "github.com/ava-labs/subnet-evm/tests/e2e/ping"
-	"github.com/ava-labs/subnet-evm/tests/e2e/runner"
-	_ "github.com/ava-labs/subnet-evm/tests/e2e/solidity"
-	"github.com/ava-labs/subnet-evm/tests/e2e/utils"
+	_ "github.com/ir4tech/webb-evm/tests/e2e/ping"
+	"github.com/ir4tech/webb-evm/tests/e2e/runner"
+	_ "github.com/ir4tech/webb-evm/tests/e2e/solidity"
+	"github.com/ir4tech/webb-evm/tests/e2e/utils"
 	ginkgo "github.com/onsi/ginkgo/v2"
 	"github.com/onsi/gomega"
 )

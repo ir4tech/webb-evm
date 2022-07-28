@@ -27,8 +27,8 @@
 package runtime
 
 import (
-	"github.com/ava-labs/subnet-evm/core"
-	"github.com/ava-labs/subnet-evm/core/vm"
+	"github.com/ir4tech/webb-evm/core"
+	"github.com/ir4tech/webb-evm/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.EVM {

@@ -8,13 +8,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/commontype"
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/core/state"
-	"github.com/ava-labs/subnet-evm/precompile"
-	"github.com/ava-labs/subnet-evm/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ir4tech/webb-evm/commontype"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/core/state"
+	"github.com/ir4tech/webb-evm/precompile"
+	"github.com/ir4tech/webb-evm/vmerrs"
 	"github.com/stretchr/testify/assert"
 )
 

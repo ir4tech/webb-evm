@@ -32,10 +32,10 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ava-labs/subnet-evm/commontype"
-	"github.com/ava-labs/subnet-evm/precompile"
-	"github.com/ava-labs/subnet-evm/utils"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/commontype"
+	"github.com/ir4tech/webb-evm/precompile"
+	"github.com/ir4tech/webb-evm/utils"
 )
 
 var (

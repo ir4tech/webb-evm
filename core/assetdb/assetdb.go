@@ -3,8 +3,8 @@ package assetdb
 import (
 	"errors"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ava-labs/subnet-evm/commontype"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ir4tech/webb-evm/commontype"
 )
 
 var (

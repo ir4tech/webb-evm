@@ -4,10 +4,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/eth/filters"
+	"github.com/ir4tech/webb-evm/eth/filters"
 
-	"github.com/ava-labs/subnet-evm/core/types"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/core/types"
 )
 
 func TestSubscribeTransactions(t *testing.T) {

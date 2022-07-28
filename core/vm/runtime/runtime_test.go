@@ -34,21 +34,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/subnet-evm/consensus"
-	"github.com/ava-labs/subnet-evm/core"
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/core/state"
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/core/vm"
-	"github.com/ava-labs/subnet-evm/eth/tracers"
-	"github.com/ava-labs/subnet-evm/eth/tracers/logger"
-	"github.com/ava-labs/subnet-evm/params"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/asm"
+	"github.com/ir4tech/webb-evm/consensus"
+	"github.com/ir4tech/webb-evm/core"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/core/state"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/core/vm"
+	"github.com/ir4tech/webb-evm/eth/tracers"
+	"github.com/ir4tech/webb-evm/eth/tracers/logger"
+	"github.com/ir4tech/webb-evm/params"
 
 	// force-load js tracers to trigger registration
-	_ "github.com/ava-labs/subnet-evm/eth/tracers/native"
+	_ "github.com/ir4tech/webb-evm/eth/tracers/native"
 )
 
 func TestDefaults(t *testing.T) {

@@ -2,10 +2,10 @@ package precompile
 
 import (
 	"fmt"
-	"github.com/ava-labs/subnet-evm/commontype"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/google/uuid"
+	"github.com/ir4tech/webb-evm/commontype"
 	"math/big"
 )
 

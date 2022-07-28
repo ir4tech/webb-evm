@@ -29,11 +29,11 @@ package vm
 import (
 	"sync/atomic"
 
-	"github.com/ava-labs/subnet-evm/core/types"
-	"github.com/ava-labs/subnet-evm/params"
-	"github.com/ava-labs/subnet-evm/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/holiman/uint256"
+	"github.com/ir4tech/webb-evm/core/types"
+	"github.com/ir4tech/webb-evm/params"
+	"github.com/ir4tech/webb-evm/vmerrs"
 	"golang.org/x/crypto/sha3"
 )
 

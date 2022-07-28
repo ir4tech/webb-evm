@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	subnetEVM "github.com/ava-labs/subnet-evm/chain"
-	"github.com/ava-labs/subnet-evm/params"
+	subnetEVM "github.com/ir4tech/webb-evm/chain"
+	"github.com/ir4tech/webb-evm/params"
 
 	"github.com/ava-labs/avalanchego/snow"
 	commonEng "github.com/ava-labs/avalanchego/snow/engine/common"

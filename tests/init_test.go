@@ -40,7 +40,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ava-labs/subnet-evm/params"
+	"github.com/ir4tech/webb-evm/params"
 )
 
 func readJSON(reader io.Reader, value interface{}) error {

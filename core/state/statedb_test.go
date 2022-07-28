@@ -39,9 +39,9 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/ava-labs/subnet-evm/core/rawdb"
-	"github.com/ava-labs/subnet-evm/core/types"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ir4tech/webb-evm/core/rawdb"
+	"github.com/ir4tech/webb-evm/core/types"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to
